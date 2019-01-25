@@ -1,0 +1,55 @@
+Name     : Aingty
+Login    : csa476d2
+Computer : cheetah.cecs.csulb.edu
+
+1.  Number of entries : 79
+    Commands Used :
+        a. cd /etc/
+        b. wc -l passwd
+
+2.  Exact Name : inetd.conf 
+    Location : /etc/inetd.conf
+    Commands Used : 
+        a. cd /etc/
+        b. ls -al
+
+3.  Program Name : df 
+    Location : /usr/bin/df
+    Commands Used :
+        a. which df
+
+4.  File(s) Name : 
+        a. xorg.conf-vesa
+    Commands Used : 
+        a. cd /etc/X11/
+        b. ls xorg*
+
+5.  File(s) Name :
+        a. libXfontcache.la*  
+        b. libXfontcache.so@  
+        c. libXfontcache.so.1@  
+        d. libXfontcache.so.1.0.0*
+    Commands Used :
+        a. cd /usr/lib64
+        b. ls *Xfontcache*
+
+6.  CPU MHz : 1200.000
+    Commands Used :
+        a. cd /proc/
+        b. cat cpuinfo
+
+7.  3 Log Files that Changed :
+        a. Jan 24 18:17 lastlog
+        b. Jan 24 18:18 wtmp
+        c. Jan 24 18:18 messages
+    Command Used :
+        a. cd /var/log/
+        b. ls -lrt
+
+8.  Last 3 lines from messages log file :
+        a. Jan 24 18:20:39 jaguar sshd[3298]: Disconnected from 134.139.248.69 port 58300
+        b. Jan 24 18:20:41 jaguar sshd[3386]: Accepted password for csa476v1 from 134.139.248.17 port 34860 ssh2
+        c. Jan 24 18:21:13 jaguar sshd[3402]: Accepted password for csa476s2 from 134.139.248.17 port 34864 ssh2
+    Command Used :
+        a. cd /var/log/
+        b. tail -3 messages
