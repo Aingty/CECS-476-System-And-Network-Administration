@@ -1,0 +1,38 @@
+Name     : Aingty
+Login    : csa476d2
+Computer : cheetah.cecs.csulb.edu
+
+1.  User's ID   : 100
+2.  Group's ID  : 300
+3.  Home Dir    : /net/aardvark/u1/volper
+4.  Login Shell : /bin/csh
+5.  Base Group  : faculty
+6.  "djv" Group :
+        a. mail
+        b. dialout
+        c. users
+7.  Group Num   :
+        a. guest = 60
+        b. cecsu = 71
+        c. cecsg = 72
+
+Computer : lab66.net.cecs.csulb.edu
+
+8.  Only Root has encrypted password.
+9.  Root password was changed roughly a few days ago :
+        January : 2019
+10. Command is  : "chage"
+11. Making the shadow file readable is a poor decision because that file contains user's password hash.
+    So if anyone could get a whole of the hash file, it could lead to potential password crack.
+12. There are 5 alases
+13. Full Path   : PATH='~/bin:/usr/bin:/bin:/usr/cecs/bin:/sbin:/usr/sbin:/usr/bin/X11:/usr/local/bin:. '
+        so 9 directories
+14. Command(s) Used :
+        a. nano ~/.bash_profile
+        b. Type CTR+X to save and exit
+        c. run "p"
+15. Added to .bash_profile
+        Command(s) Used :
+            a. nano ~/.bash_profile
+            b. Type CTR+X
+            c. run "hello"
