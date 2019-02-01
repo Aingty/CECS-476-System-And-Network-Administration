@@ -1,0 +1,26 @@
+Name     : Aingty
+Login    : csa476d2
+Computer : lab66.net.cecs.csulb.edu
+
+Command(s) Used to complete Assignment 3
+
+1.  ssh csa476d2@cheetah.cecs.csulb.edu 
+2.  ssh lab66
+3.  su
+4.  nano /etc/passwd  (input info)
+5.  passwd bob
+6.  passwd sue
+7.  mkdir /home/bob && mkdir /home/sue
+8.  cp ~djv/.bash_profile ~djv/.login /home/bob
+9.  cp ~djv/.bash_profile ~djv/.login /home/sue
+10. touch /home/bob/demo /home/sue/demo (then typed the info message)
+11. chown -R bob:1201 /home/bob 
+12. chown -R sue:1202 /home/sue
+13. chmod -R 755 /home/bob 
+14. chmod -R 755 /home/sue
+15. su bob
+16. pwd (/home/bob)
+17. ls -al (permissions are correct)
+18. su sue
+19. pwd (/home/sue)
+20. ls -al (permissions are correct)
