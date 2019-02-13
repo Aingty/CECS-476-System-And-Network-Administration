@@ -1,0 +1,63 @@
+Name     : Aingty Eung
+Login    : csa476d2
+Computer : lab66.net.cecs.csulb.edu
+
+1. Command(s) Used  :
+    a.  Through fdisk, I've deleted two partitions using "d" command and typing "1" then repeat for "2"
+        Then I've created two more partition using the "n" command and giving 8GB to the first partition using
+        "+8G" when asked for the end sector. Then gave the rest of space to partition 2. 
+        Partition Tables:
+            Device     Boot    Start       End   Sectors  Size Id Type
+            /dev/sdb1           2048  16779263  16777216    8G 82 Linux swap
+            /dev/sdb2       16779264 156299374 139520111 66.5G 83 Linux
+    b.  mount /dev/sdb2 /newdisk
+        "df" report:
+            Filesystem         1K-blocks      Used Available Use% Mounted on
+            /dev/root           69231284   5799324  59915180   9% /
+            devtmpfs              995744         0    995744   0% /dev
+            tmpfs                 997968       876    997092   1% /run
+            tmpfs                 997968         0    997968   0% /dev/shm
+            cgroup_root           997968         0    997968   0% /sys/fs/cgroup
+            cgmfs                    100         0       100   0% /run/cgmanager/fs
+            134.139.248.17:/u3 480589568  47466496 408687360  11% /net/cheetah/u3
+            134.139.248.17:/u4 480589568 293330432 162823424  65% /net/cheetah/u4
+            /dev/sdb2           68663892     53012  65122880   1% /newdisk
+
+2.  Line added to "fstab"   :
+        /dev/sdb2        /newdisk         ext2         defaults        0    1
+
+3.  Line added to "fstab"   :
+        /dev/fd0        /mnt/extdisk      ext2         noauto          0    0
+    Command(s) Used         :
+        a.  fstab /dev/fd0 --> following fstab command to create a ext2 partition
+        b.  mkdir /mnt/extdisk
+        c.  mount /dev/fd0 /mnt/extdisk
+        d.  su bob
+        e.  nano ~/test.txt
+        f.  cp ~/test.txt /mnt/extdisk
+
+4.  Command(s) Used and Output  :
+        a.  umount /dev/fd0
+        b.  fsck /dev/fd0 
+                Output  : 
+                    fsck from util-linux 2.27.1
+                    e2fsck 1.43.1 (08-Jun-2016)
+                    /dev/fd0 contains a file system with errors, check forced.
+                    Pass 1: Checking inodes, blocks, and sizes
+                    Pass 2: Checking directory structure                                           
+                    Pass 3: Checking directory connectivity                                        
+                    Pass 4: Checking reference counts
+                    Pass 5: Checking group summary information
+                    /dev/fd0: 12/184 files (0.0% non-contiguous), 48/1440 blocks 
+        c.  fsck -f /dev/fd0
+                Output  :
+                    fsck from util-linux 2.27.1
+                    e2fsck 1.43.1 (08-Jun-2016)
+                    Pass 1: Checking inodes, blocks, and sizes
+                    Pass 2: Checking directory structure
+                    Pass 3: Checking directory connectivity
+                    Pass 4: Checking reference counts
+                    Pass 5: Checking group summary information
+                    /dev/fd0: 12/184 files (0.0% non-contiguous), 48/1440 blocks
+
+

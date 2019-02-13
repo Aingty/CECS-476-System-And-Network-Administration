@@ -1,0 +1,71 @@
+Name     : Aingty Eung
+Login    : csa476d2
+Computers: lab66.net.cecs.csulb.edu & cheetah.cecs.csulb.edu
+
+1.  It has been 2 hours, 29 minutes since rebooted.
+
+2.  There are 31 users logged in.
+
+3.  Currently the load is short.
+
+4.  Percentage of CPU Usage :
+        0.8 user,  0.5 system, 98.0 idle
+
+5.  Memory Usages   :
+         1507324 free,   205324 used
+
+6.  Processes with larges Resident Set Size :
+        5691 csa476t1  20   0   41936   8200   5508 S   0.7  0.4   0:00.43 vim
+        6682 csa476d2  20   0   14368   2740   2136 R   0.7  0.1   0:01.49 top
+        6943 csa476t1  20   0   14336   2760   2312 S   0.7  0.1   0:00.41 top
+
+7.  Processes called "agetty" running   :
+        root      1033  0.0  0.0   6948  1696 tty2     Ss+  Feb05   0:00 /sbin/agetty 38400 tty2 linux
+        root      1034  0.0  0.0   6948  1700 tty3     Ss+  Feb05   0:00 /sbin/agetty 38400 tty3 linux
+        root      1035  0.0  0.0   6948  1568 tty4     Ss+  Feb05   0:00 /sbin/agetty 38400 tty4 linux
+        root      1036  0.0  0.0   6948  1704 tty5     Ss+  Feb05   0:00 /sbin/agetty 38400 tty5 linux
+        root      1037  0.0  0.0   6948  1640 tty6     Ss+  Feb05   0:00 /sbin/agetty 38400 tty6 linux
+        root      2740  0.0  0.0   6948  1560 tty1     Ss+  Feb11   0:00 /sbin/agetty --noclear 38400 tty1 linux
+
+8.  Commands running with the letter "rpc"  :
+        root        28  0.0  0.0      0     0 ?        S<   Feb05   0:00 [rpciod]
+        bin        925  0.0  0.1  13060  2172 ?        Ss   Feb05   0:00 /sbin/rpcbind -l -w
+        rpc        930  0.0  0.1  17636  2512 ?        Ss   Feb05   0:00 /sbin/rpc.statd
+
+9.  "inetd" information :
+        VM      RS
+        6488    1556
+
+10. Currently Lab66 is using a Swap Partition. Its name is "swap".
+
+11. Information in Kilobyts and Command(s) Used     :
+        a.  There are 1634Kb available in memory ("free -m")
+        b.  There are 19Kb in used in memory ("free -m")
+        c.  There are 399Kb used in memory buffer ("free -m")
+        d.  There are 7630Kb available in swap ("free -m")
+        e.  There are 0Kb used in swap ("free -m")
+
+12. Command(s) Used :
+        a.  dd if=/dev/zero of=/swapoff bs=1024 count=4096
+        b.  mkswap /swapoff
+        c.  swapon /swapoff
+
+13. Swap Space Information  :
+        Swapon off  :   Using "free -m" command to view
+                           total        used        free      shared  buff/cache   available
+            Mem:           1949          52        1494           0         402        1636
+            Swap:             0           0           0
+        Swapon on   :   Using "swapon -s" command to view
+            Filename	    Type		Size	Used	Priority
+            /dev/sda1       partition	7814044	0	    -1
+            /swapoff         file    	4092	0	    -2
+
+14. Swap Space Information  :
+        Using "free -m" command     : (all numbers are in Kilobyts)
+                          total        used        free      shared  buff/cache   available
+            Mem:           1949          47        1679           0         221        1674
+            Swap:         15822           0       15822
+        Using "swapon -s" command   : (all numbers are in Kilobyts)
+            Filename				Type		Size	Used	Priority
+            /dev/sda1              partition	7814044	0	    -1
+            /dev/sdb1              partition	8388604	0	    -2
