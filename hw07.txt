@@ -1,0 +1,22 @@
+Name     : Aingty Eung
+Login    : csa476d2
+Computers: lab66.net.cecs.csulb.edu
+
+1.  Line changed to inittab  :
+        s1:12345:respawn:/sbin/agetty -L ttyS0 9600 vt100
+
+2.  Just commented the Line  :
+        #ca::ctrlaltdel:/sbin/shutdown -t5 -r now 
+
+    Command to take effect   :
+        init q
+
+3.  Init will wait 5 seconds before forcibly terminating processes.
+
+4.  "Crontab" Entry       :
+        * * * * * /bin/ls >> /home/bob/ls-output.txt
+
+5.  "At" Entry Command    :
+         echo "ls >> output.txt" | at now + 5 min 
+
+        
