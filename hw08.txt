@@ -1,0 +1,12 @@
+Name     : Aingty Eung
+Login    : csa476d2
+Computers: lab66.net.cecs.csulb.edu
+
+1.  Date Stamp of "bzImage" : Feb 19 18:31
+
+
+2.  Content(s) of /proc/sys/kernal/version  :
+        #1 SMP Tue Feb 19 18:30:31 PST 2019
+
+3.  New Kernal Size     :   7.3M Exact = 7617856 byte
+    Stock Kernal Size   :   7.3M Exact = 7630144 byte
