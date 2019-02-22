@@ -1,0 +1,38 @@
+Name     : Aingty Eung
+Login    : csa476d2
+Computers: lab66.net.cecs.csulb.edu
+
+1.  Command Used(s) :
+        a.  su 
+        b.  mount /dev/fd0 /mnt/extdisk
+        c.  tar -cf /dev/fd0 /home/bob
+        d.  tar -tf /dev/fd0 (* to check if done correctly)
+
+2.  Command Used(s) :
+        a.  su
+        b.  cd ~
+        c.  tar -xpf ~djv/giant.tgz
+    Subdirectories  :
+        a.  fee
+        b.  fie
+        c.  foe
+    File info       :
+        a. -rw-r--r--   djv faculty 10  Feb 23  1998    fum
+
+3.  Command Used(s) :
+        a.  su
+        b.  cd
+        c.  tar -xpf ~djv/house.txz
+    Content of wolf :
+        "Huff and puff"
+
+4.  Content of file joe.cr  :
+        "Hi there joe"
+
+5.  Sequence used for underlining   :
+        \E[36m  ==> Start underlining
+
+6.  Key(s) Used to Stop :
+        "ctrl + S"
+    Command(s) Used :
+        stty stop ^Y
