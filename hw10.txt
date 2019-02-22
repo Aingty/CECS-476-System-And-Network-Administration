@@ -1,0 +1,22 @@
+Name     : Aingty Eung
+Login    : csa476d2
+Computers: lab66.net.cecs.csulb.edu
+
+1.  Configuration Option to Disable "control+alt+backspace" :
+        /etc/X11/xorg.conf or /etc/X11/xorg.conf-vesa
+
+2a. Mouse Protocol Options  : Total = 21 Protocols
+        a.  Auto                f.  IMPS/2          k.  Mouseman                p.  OSMouse                 u.  Xqueue
+        b.  BusMouse            g.  Logitech        l.  MouseManPlusPS/2        q.  PS/2
+        c.  GlidePoint          h.  Microsoft       m.  MouseSystems            r.  SysMouse
+        d.  GlidePointPS/2      i.  MMHitTab        n.  NetMousePS/2            s.  ThinkingMouse
+        e.  IntelliMouse        j.  MMSeries        o.  NetScrollPS/2           t.  ThinkingMousePS/2
+
+2b. Currently this file uses    :
+        Option "Protocol"    "PS/2"
+
+2c. Default Window Manager  :
+        xinitrc --> xinitrc.fvwm2
+
+3a. Mouse input device found    :
+        USB Optical Mouse (/dev/input/event8)
