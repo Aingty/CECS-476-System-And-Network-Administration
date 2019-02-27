@@ -1,0 +1,66 @@
+Name     : Aingty Eung
+Login    : csa476d2
+Computers: lab66.net.cecs.csulb.edu
+
+1.  Four Supported Ethernet Card(s) For 3-Com   :
+        a.  3c509.c  
+        b.  3c515.c  
+        c.  3c59x.c
+        d.  3c574_cs.c  
+
+2.  Three Supported Ethernet Card(s) For Intel  :
+        a.  e100.c
+        b.  e1000.c
+        c.  fm10k_common.c
+
+3.  Pins 18, 19, and 20 of PLIP is used For :
+        Extra grounds
+
+4.  Fully Qualified Hostname    :
+        lab66.net.cecs.csulb.edu
+    Command Used    :
+        hostname -f
+
+5.  Mac Address :
+        00:22:4d:4c:79:68  
+
+6. Broadcast Address :
+        134.139.248.95
+
+7.  Gateway Entry   :
+        Jaguar.net.cecs.csulb.edu
+
+8.  Netmask     :
+        255.0.0.0
+
+9.  Arp table   :
+        ? (134.139.248.72) at 00:22:4d:4c:79:bf [ether] on eth0
+        ? (134.139.248.73) at 00:22:4d:4c:78:be [ether] on eth0
+        ? (134.139.248.71) at 00:22:4d:4c:79:f8 [ether] on eth0
+
+10. Methods and Order of locating Hostname  :
+        files dns
+
+11. Other Machine used to Resolve   :
+        nameserver  134.139.248.17   (Cheetah.cecs.csulb.edu)
+
+12. Hostname that can be used with the shorthand is through /etc/hosts  :
+        134.139.248.38          lab38.net.cecs.csulb.edu  lab38
+    However, under /etc/resolv.conf, the search is net.cecs.csulb.edu and cecs.csulb.edu so 
+    techincally all other shorthand, ex lab77, will work as well.
+
+13. Two gateway of panther's knowledge  :
+        a.  cheetah.cecs.csulb.edu
+        b.  jaguar.cecs.csulb.edu
+
+14. Route entry for panther to my Machine   :
+        Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+        134.139.248.64  jaguar.net.cecs 255.255.255.224 UG    0      0        0 eth0
+
+15. For ip 134.139.43.56 and netmask 255.255.255.0  :
+        subnet number       =   134.139.43.0
+        subnet Broadcast    =   134.139.43.255
+
+16. For ip 134.139.201.134 and netmask 255.255.255.224 :
+        subnet number       =   134.139.201.128
+        subnet Broadcast    =   134.139.201.159
