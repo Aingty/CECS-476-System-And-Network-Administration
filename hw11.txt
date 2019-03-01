@@ -1,0 +1,48 @@
+Name     : Aingty Eung
+Login    : csa476d2
+Computers: lab66.net.cecs.csulb.edu
+
+1. Command(s) Used  :
+    a.  ifconfig eth0 134.139.248.66 netmask 255.255.255.224
+    b.  route add default gw 134.139.248.65
+
+2.  Command(s) Used :
+    a. nano /etc/resolv.conf
+    b. (Append to the search line "ics.uci.edu")
+
+3.  I hashed out a line in the /etc/inetd.conf  :
+        #telnet  stream  tcp     nowait  root    /usr/sbin/tcpd  in.telnetd
+
+4.  File edited :
+        /etc/hosts.deny
+    Following Line added    :
+        in.telnetd: panther.net.cecs.csulb.edu
+
+5.  Remote Programs Available   :
+        portmapper
+        status
+        nlockmgr
+        ypbind
+        rquotad
+        nfs
+        mountd
+
+6.  File Used   :   on lab66.net.cecs.csulb.edu
+        /home/bob/.rhosts
+    Line added  :
+        panther.net.cecs.csulb.edu csa476d2
+
+7.  File Used   :   on lab66.net.cecs.csulb.edu
+        /etc/hosts.equiv
+    Line added  :
+        puma.net.cecs.csulb.edu
+
+8.  Command(s) Used :
+        a.  ssh-keygen -t rsa
+        b.  su bob
+        c.  cd 
+        d.  mkdir .ssh
+        e.  exit
+        f.  cat ~/.ssh/id_rsa.pub | ssh bob@lab66 'cat >> .ssh/authorized_keys' (* This is done as csa476d2 as to avoid the scp step)
+
+    
