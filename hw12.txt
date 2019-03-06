@@ -1,0 +1,52 @@
+Name     : Aingty Eung
+Login    : csa476d2
+Computers: lab66.net.cecs.csulb.edu
+
+1.  NIS domain name of my machine   :
+        cecsnet
+    Command(s) Used :
+        a. nisdomainname
+
+2.  NIS server of my machine    :
+        cheetah.cecs.csulb.edu
+    Command(s) Used :
+        a. ypwhich
+
+3.  Number of Passwords :
+        51
+    Command(s) Used :
+        a. ypcat passwd
+
+4.  Exact Line  : (* All in one line but added multiple lines here for easy to read)
+        csa476d2:$6$H/iDJEXb$V4054AJJ0qfO43pdk8b3ip8suXUqUiLJIeAPAohnPnGf7RhJng3h.wehfCIsCS3EmZJc0b7mh7ZrUgDAIMXmD/
+        :20072
+        :1001
+        :student
+        :/net/cheetah/u3/c/csa476/d2:/bin/bash
+    Command(s) Used :
+        a. ypmatch csa476d2 passwd
+
+5.  Dependent upon domain name  :
+        /var/yp/binding
+
+6.  Content of "yp.conf"    :
+        ypserver 134.139.248.17
+
+7.  Exact Path Name :
+        /usr/sbin/ypbind    
+    Condition to Start  : 
+        Only starts if the directory /var/yp exists
+
+8.  Examine of "nsswitch.conf"  :
+        Yes it uses yp for password because of the following line in the conf (contains "nis")
+            passwd:         files nis
+
+9.  Examine of "/etc/netgroup"  :
+        3 Machines are on there which are   :
+            cslabd (panther,-,) (puma,-,) (lynx,-,)
+
+10. Action used to turn off NIS :
+        a.  su
+        b.  nano /etc/nsswitch.conf
+        c.  *In nsswitch.conf (Delete "nis" from the line "group:     file nis")
+
