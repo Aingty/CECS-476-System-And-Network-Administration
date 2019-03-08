@@ -1,0 +1,40 @@
+Name     : Aingty Eung
+Login    : csa476d2
+Computer : lab66.net.cecs.csulb.edu
+
+1.  Export Directories   :
+        a.  /load                           (ro,sync,no_subtree_check)
+        b.  /sdb/slack13.37-64/slackware64  (ro,sync,no_subtree_check)
+        c.  /sdb/slack13.37/slackware       (ro,sync,no_subtree_check)
+        d.  /sdb/slack14.2-64/slackware64   (ro,sync,no_subtree_check)
+    Export to Machine    :
+        a.  134.139.248.0/255.255.255.0(ro,sync,no_subtree_check)
+        b.  134.139.248.0/255.255.255.0(ro,sync,no_subtree_check)
+        c.  134.139.248.0/255.255.255.0(ro,sync,no_subtree_check)
+        d.  134.139.248.0/255.255.255.0(ro,sync,no_subtree_check)
+    The machines that are allowed to read from the directories are any machines
+    with the ip "134.139.248.0" to "134.139.248.255" since netmask is 255.255.255.0
+
+2.  Fstab entries   :
+        a.  134.139.248.17:/u3 /net/cheetah/u3 nfs soft,bg,nolock 0 0
+        b.  134.139.248.17:/u4 /net/cheetah/u4 nfs soft,bg,nolock 0 0
+
+3.  NFS Directories mounted on cheetah  :
+        aardvark.cecs.csulb.edu:/u1  413G   24G  369G   6% /net/aardvark/u1
+    a.  Options cheetah uses    :   /etc/auto.aardvark
+            u1 -soft,intr,nsfvers=2 aardvark.cecs.csulb.edu:/u1
+    b.  Options cheetah uses    :   /etc/auto.lab
+            lab66 -soft,intr lab66:/etc
+
+4.  Line added to file  :   /etc/fstab
+        134.139.248.18:/sdb/slack14.2-64/slackware64 /mnt nfs soft,bg,nolock 0 0
+
+5.  File Changed    :   /etc/exports
+        /etc cheetah(ro,sync,no_subtree_check,root_squash)
+    Report from cheetah :
+        lab66:/etc                    67G  6.1G   57G  10% /net/lab/lab66
+
+6.  Line added to "/etc/auto.master"    :
+        /opt    /etc/auto.jaguar
+    Entire Indirect Map     :   
+        load -soft,intr jaguar.net.cecs.csulb.edu:/load
