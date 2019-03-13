@@ -1,0 +1,48 @@
+Name     : Aingty Eung
+Login    : csa476d2
+Computer : lab66.net.cecs.csulb.edu
+
+1.  proftpd.conf and ftpusers are all checkout
+
+2.  Command(s) Used :
+        a.  ssh jaguar
+        b.  ftp lab66 
+                b1. *typed* "Anonymous"
+                b2. *typed* "aingty.eung@yahoo.com" as password
+        c.  get dummy.txt
+    Statements after logging in :
+        230 Anonymous access granted, restrictions apply
+        Remote system type is UNIX.
+        Using binary mode to transfer files.
+
+3.  Changes made to display message :
+        a.  cd ~ftp
+        b.  nano welcome.msg (*type "Hello and Welcome to FTP!!!")
+        Since by default the proftpd.conf has the DisplayLogin --> welcome.msg
+
+4.  Command(s) Used :
+        a.  ssh jaguar
+        b.  ftp lab66
+                b1. *typed* "bob"
+                b2. *typed bob's password*
+        c.  get demo
+
+5.  Changes made to /etc/ftpusers   :
+        *Added the line below to the file*
+        bob
+
+6.  Command(s) Used :
+        a.  sftp lab66 (Already logged in as csa476d2 on cheetah)
+        b.  cd /home/bob
+        c.  get demo
+        d.  bye
+
+7.  Comparing "clogitA" and "clogitB"   :
+                clogitA                 clogitB
+        size     9.0K                    848K
+
+        clogitA = 	linux-vdso.so.1 (0x00007ffedbb8a000) 
+                    libc.so.6 => /lib64/libc.so.6 (0x00007f51af133000)
+	                /lib64/ld-linux-x86-64.so.2 (0x0000558ea128b000)
+        
+        clogitB =   not a dynamic executable (So this is static)
