@@ -1,0 +1,22 @@
+Name     : Aingty Eung
+Login    : csa476d2
+Computer : lab66.net.cecs.csulb.edu
+
+1.  Report of "fdisk" on /dev/sda   :
+        Device     Boot    Start       End   Sectors  Size Id Type
+        /dev/sda1           2048  15630148  15628101  7.5G 82 Linux swap
+        /dev/sda2       15630149 156301487 140671339 67.1G 83 Linux
+
+2.  Packages Report from "pkgtool"  :
+        a.  ConsoleKit2
+        b.  Cython
+        c.  GConf
+        d.  LibRaw
+        e.  M2Crypto
+        f.  ModemManager
+
+3.
+
+4.
+
+5.
