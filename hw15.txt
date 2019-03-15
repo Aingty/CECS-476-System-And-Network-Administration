@@ -20,3 +20,46 @@ Computers: lab66.net.cecs.csulb.edu
 
 3a. Mouse input device found    :
         USB Optical Mouse (/dev/input/event8)
+
+3b. Best/Default Modeline for this PC   :
+        Modes "1024x768" is the default
+
+3c. Keyboard layout chosen      :
+        "us"
+
+4.  Device "/dev/mouse"  :
+        /dev/mouse -> input/mice
+
+5a. Window Manager for "~djv" :
+        "twm"
+
+5b. There will be 3 windows displayed   :
+        xterm -n "xterm" -g 80x56-0+0 \#+420+764 -sb -sl 300 &
+        xterm -n "xterms" -g 80x24+0+0 \#+168+846 -sb -sl 300 &
+        xterm -n "xterm2" -g 80x24+0-0 -sb -sl 300 &
+
+5c. Examination of ".twmrc"     :
+        Button 1 will raises the window to front through this line      :
+                Button1 =      : title  : f.raise
+
+6a. Modification of file "/etc/X11/xinit/xinitrc.fvwm2  :
+        xterm -n "x1" -g 80x56+0+0 -sb -sl 300 &
+        xterm -n "x2" -g 80x24+0-0 -sb -sl 300 &
+        xsetroot -solid yellow
+
+6b. In order to start "twm" by default  :
+        ck-launch-session /usr/bin/startfvwm2  ------> ck-launch-session /usr/bin/twm
+
+7a. Display Type        :
+        Horizontal = 1024
+        Vertical   = 768
+
+7b. Vertical Sync       :
+        60.00Hz
+
+8.  File Created        :       "~/.xinitrc"
+    Content(s)          :
+        #!/bin/sh
+        xsetroot -solid Red
+        xterm -n "x1" -g 80x24+0+0 -sb -sl 300 &
+        twm 
