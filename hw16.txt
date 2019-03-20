@@ -15,8 +15,19 @@ Computer : lab66.net.cecs.csulb.edu
         e.  M2Crypto
         f.  ModemManager
 
-3.
+3.  Etherboot   :
+        The concept that allow PC to boot/os install over network. It is very common and it is also
+        known as "Preboot Execution Environment" or "PXE".
 
-4.
+4.  File to be downloaded :
+        "/tftpboot/pxelinux.0"
+    Host Entry for Lab 66 :
+        host lab66 
+        {
+           #hardware ethernet 00:11:11:93:73:7a ;
+           hardware ethernet 00:22:4d:4c:79:68 ;
+           fixed-address 134.139.248.66 ;
+        }
 
-5.
+5.  Number of entries in "/bin" :
+        199 (command used was "ls |wc -l")
