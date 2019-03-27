@@ -1,0 +1,16 @@
+Name     : Aingty Eung
+Login    : csa476d2
+Computer : lab66.net.cecs.csulb.edu
+
+Report of "df"  :
+    csa476d2@lab66:~$ df
+        Filesystem         1K-blocks      Used Available Use% Mounted on
+        /dev/root           69231284   8137724  57576780  13% /
+        devtmpfs              995744         0    995744   0% /dev
+        tmpfs                 997968       876    997092   1% /run
+        tmpfs                 997968         0    997968   0% /dev/shm
+        cgroup_root           997968         0    997968   0% /sys/fs/cgroup
+        cgmfs                    100         0       100   0% /run/cgmanager/fs
+        134.139.248.17:/u3 480589568  47704832 408449024  11% /net/cheetah/u3
+        134.139.248.17:/u4 480589568 294458880 161694976  65% /net/cheetah/u4
+        
