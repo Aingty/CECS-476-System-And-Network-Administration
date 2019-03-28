@@ -1,0 +1,28 @@
+Name     : Aingty Eung
+Login    : csa476d2
+Computer : lab66.net.cecs.csulb.edu
+
+1.  Line added to "syslog.conf"  :
+        # Mail related logs:
+        mail.*                                                  /var/log/mymaillog
+
+2.  Line added to my "syslog.conf"  :
+        # Mail related logs:
+        mail.*                                                  @jaguar.net.cecs.csulb.edu
+
+3.  Line added to "logrotate.conf"  :
+        # rotate log files weekly:
+        weekly
+
+        # for assignment 18 keeping up to 16 weeks of backlogs:
+        rotate 16
+
+4.  Lines added to "logrotate.conf" :
+        # Rotate /var/log/mymaillog for Assignment 18:
+        /var/log/mymaillog {
+            monthly
+            create 0664 root root
+            minsize 2M
+            rotate 6
+        }
+
