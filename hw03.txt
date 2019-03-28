@@ -2,6 +2,7 @@ Name     : Aingty
 Login    : csa476d2
 Computer : lab66.net.cecs.csulb.edu
 
+                                    Setting Up Users and Logins
 Command(s) Used to complete Assignment 3
 
 1.  ssh csa476d2@cheetah.cecs.csulb.edu 

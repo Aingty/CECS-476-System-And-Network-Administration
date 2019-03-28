@@ -2,6 +2,7 @@ Name     : Aingty Eung
 Login    : csa476d2
 Computers: lab66.net.cecs.csulb.edu
 
+                                    Network Configuration Info Gathering
 1.  Four Supported Ethernet Card(s) For 3-Com   :
         a.  3c509.c  
         b.  3c515.c  

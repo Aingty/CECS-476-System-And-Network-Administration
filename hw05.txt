@@ -2,6 +2,7 @@ Name     : Aingty Eung
 Login    : csa476d2
 Computer : lab66.net.cecs.csulb.edu
 
+                                    Disk and File System Administration
 1. Command(s) Used  :
     a.  Through fdisk, I've deleted two partitions using "d" command and typing "1" then repeat for "2"
         Then I've created two more partition using the "n" command and giving 8GB to the first partition using

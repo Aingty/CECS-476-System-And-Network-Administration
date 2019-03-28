@@ -2,6 +2,7 @@ Name     : Aingty Eung
 Login    : csa476d2
 Computer : lab66.net.cecs.csulb.edu
 
+                                    Re-Installed Linux OS
 Report of "df"  :
     csa476d2@lab66:~$ df
         Filesystem         1K-blocks      Used Available Use% Mounted on

@@ -2,6 +2,7 @@ Name     : Aingty Eung
 Login    : csa476d2
 Computers: lab66.net.cecs.csulb.edu
 
+                                    Init Processes
 1.  Line changed to inittab  :
         s1:12345:respawn:/sbin/agetty -L ttyS0 9600 vt100
 

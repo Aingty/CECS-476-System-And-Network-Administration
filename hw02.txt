@@ -2,6 +2,7 @@ Name     : Aingty
 Login    : csa476d2
 Computer : cheetah.cecs.csulb.edu
 
+                                    Users and Logins Introduction
 1.  User's ID   : 100
 2.  Group's ID  : 300
 3.  Home Dir    : /net/aardvark/u1/volper

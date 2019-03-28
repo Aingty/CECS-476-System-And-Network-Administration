@@ -2,6 +2,7 @@ Name     : Aingty Eung
 Login    : csa476d2
 Computer : lab66.net.cecs.csulb.edu
 
+                                    FTP Usage
 1.  proftpd.conf and ftpusers are all checkout
 
 2.  Command(s) Used :

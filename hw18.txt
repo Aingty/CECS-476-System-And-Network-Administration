@@ -2,6 +2,7 @@ Name     : Aingty Eung
 Login    : csa476d2
 Computer : lab66.net.cecs.csulb.edu
 
+                                    Syslog and Logrotate
 1.  Line added to "syslog.conf"  :
         # Mail related logs:
         mail.*                                                  /var/log/mymaillog

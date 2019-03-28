@@ -2,6 +2,7 @@ Name     : Aingty Eung
 Login    : csa476d2
 Computer : lab66.net.cecs.csulb.edu
 
+                                    Network File System (NFS)
 1.  Export Directories   :
         a.  /load                           (ro,sync,no_subtree_check)
         b.  /sdb/slack13.37-64/slackware64  (ro,sync,no_subtree_check)

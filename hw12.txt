@@ -2,6 +2,7 @@ Name     : Aingty Eung
 Login    : csa476d2
 Computers: lab66.net.cecs.csulb.edu
 
+                                    Network Information Service Reports (NIS)
 1.  NIS domain name of my machine   :
         cecsnet
     Command(s) Used :

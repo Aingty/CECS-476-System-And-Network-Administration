@@ -2,6 +2,7 @@ Name     : Aingty Eung
 Login    : csa476d2
 Computers: lab66.net.cecs.csulb.edu
 
+                                    Backup and Termcap
 1.  Command Used(s) :
         a.  su 
         b.  mount /dev/fd0 /mnt/extdisk

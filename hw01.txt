@@ -2,6 +2,7 @@ Name     : Aingty
 Login    : csa476d2
 Computer : cheetah.cecs.csulb.edu
 
+                                    Linux Commands Tutorial
 1.  Number of entries : 79
     Commands Used :
         a. cd /etc/

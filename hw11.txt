@@ -2,6 +2,7 @@ Name     : Aingty Eung
 Login    : csa476d2
 Computers: lab66.net.cecs.csulb.edu
 
+                                    Network Configuration
 1. Command(s) Used  :
     a.  ifconfig eth0 134.139.248.66 netmask 255.255.255.224
     b.  route add default gw 134.139.248.65

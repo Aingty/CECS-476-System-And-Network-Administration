@@ -3,6 +3,7 @@ Login    : csa476d2
 Computer : lab66.net.cecs.csulb.edu
 Refer to the cpeek.sh file for the script used for this assignment
 
+                                    Shell/Bash Script Tutorial
 1. Content(s) of cpeek.sh   :
     #!/bin/bash
     # This is the cpeek shell script for Assignment #4
