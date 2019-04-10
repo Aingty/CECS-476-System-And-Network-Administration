@@ -1,0 +1,32 @@
+Name     : Aingty Eung
+Login    : csa476d2
+Computer : lab66.net.cecs.csulb.edu
+
+                                    Mail Configuration
+
+1.  Content of /home/bob/.procmailrc    :
+        :0:lockfile
+        * ^Subject.*Late
+        latestuff
+
+        :0:lockfile
+        * ^From.*csa476d2
+        importantstuff
+
+        :0 B:
+        * Bargain
+        junkmail
+
+2.  Ruleset that converts header names to masqueaded form   :
+        Ruleset 93 
+
+3.  Name and full path name of pop3 server  :
+        pop3    stream  tcp     nowait  root    /usr/sbin/tcpd  /usr/sbin/popa3d
+
+4.  Changes made to the Macros /usr/share/sendmail/cf/cf/config.mc  :
+        define(`SMART_HOST',`jaguar.net.cecs.csulb.edu')
+        define(`MAIL_HUB',`jaguar.net.cecs.csulb.edu')
+
+5.  Changes made to /etc/mail/sendmail.mc   :
+        # Added theses next lines for Assignment 19
+        CL root bob
