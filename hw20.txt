@@ -1,0 +1,47 @@
+Name     : Aingty Eung
+Login    : csa476d2
+Computer : lab66.net.cecs.csulb.edu
+
+                                    Security and IP Tables
+1.  The last two lines of /home/bob/datelog after running /home/bob/clogit  :
+        csa476d2  Thu Apr 11 15:31:52 2019
+        csa476d2  Thu Apr 11 15:52:22 2019
+
+2.  When creating a script to write into /home/bob/datelog again  :
+        We get a "permission denied"
+
+3.  Variable and File to change for Time Login Restrictions : (/etc/login.defs)
+        File    :   /etc/porttime
+        Variable:   PORTTIME_CHECKS_ENAB    yes
+
+4.  Variable to allow login if no home directory exists : (/etc/login.defs)
+        DEFAULT_HOME    yes/no 
+
+5.  Changes to /etc/login.defs  :
+        # To enable su from wheel only
+        SU_WHEEL_ONLY   yes
+        
+        # This was uncommented so "sulog" wasn't there, so uncommented this
+        SULOG_FILE      /var/log/sulog
+        
+        # Enable "syslog" of "su" commands
+        SYSLOG_SU_ENAB          yes
+
+    Changes to /etc/group   :
+        # Adding "bob" to "wheel" group
+        wheel:x:10:root,bob
+
+    Last line of /var/log/sulog :
+        SU 04/11 17:20 + /dev/pts/1 bob-root
+
+6.  Report of Login history using "last" command :
+        csa476y1 pts/51       134.139.248.71   Thu Apr 11 17:13   
+        csa476b2 pts/50       10.39.87.14      Thu Apr 11 17:10   
+        csa476w1 pts/47       10.39.82.58      Thu Apr 11 17:08
+
+7.  Command used to block ssh from panther  :
+        iptables -A INPUT -p tcp --dport ssh -s 134.139.248.21 -j REJECT
+
+8.  Rules that allow established inbound connections in /usr/local/bin/iptables-rules.sh    :
+        #Established connections
+        $IPT -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
