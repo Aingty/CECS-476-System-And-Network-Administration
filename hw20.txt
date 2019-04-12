@@ -18,15 +18,15 @@ Computer : lab66.net.cecs.csulb.edu
         DEFAULT_HOME    yes/no 
 
 5.  Changes to /etc/login.defs  :
+        # Enable "syslog" of "su" commands
+        SYSLOG_SU_ENAB          yes
+
         # To enable su from wheel only
         SU_WHEEL_ONLY   yes
         
         # This was uncommented so "sulog" wasn't there, so uncommented this
         SULOG_FILE      /var/log/sulog
         
-        # Enable "syslog" of "su" commands
-        SYSLOG_SU_ENAB          yes
-
     Changes to /etc/group   :
         # Adding "bob" to "wheel" group
         wheel:x:10:root,bob
