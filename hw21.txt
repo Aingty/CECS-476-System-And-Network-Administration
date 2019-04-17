@@ -1,0 +1,53 @@
+Name     : Aingty Eung
+Login    : csa476d2
+Computer : lab66.net.cecs.csulb.edu
+
+                                    HTTPD
+1 - 3.
+    Changes within /etc/httpd/httpd.conf    :
+        
+        Uncommented the Following lines :
+            LoadModule userdir_module lib64/httpd/modules/mod_userdir.so
+            Include /etc/httpd/extra/httpd-userdir.conf
+
+        Added the Following lines   :
+            <Directory /home/*>
+                AllowOverride All
+                Options Indexes FollowSymLinks
+                Require all granted
+            </Directory>
+            <Directory /home/ftp>
+                Deny from all
+            </Directory>
+
+4.  Content of /home/bob/public_html/limited/.htaccess  :
+        AuthName "Server"
+        AuthType Basic
+        AuthUserFile /home/bob/public_html/limited/.htpasswd
+        require valid-user
+    
+    Command(s) Used to add password :
+        htpasswd -c /home/bob/public_html/limited/.htpasswd bob 
+        htpasswd /home/bob/public_html/limited/.htpasswd joe 
+
+5.  Added the following to /etc/httpd/httpd.conf   :
+        <Directory /home/*>
+            <FilesMatch "\.secret">
+                Order allow,deny
+                Deny from all
+                Satisfy All
+            </FilesMatch>
+            AllowOverride All
+            Options Indexes FollowSymLinks
+            Require all granted
+        </Directory>
+
+6.  Added the following to /etc/httpd/extra/httpd-userdir.conf  :
+        <Directory "/home/*/public_html">
+            AllowOverride FileInfo AuthConfig Limit Indexes
+            Options MultiViews Indexes SymLinksIfOwnerMatch IncludesNoExec ExecCGI
+            AddHandler cgi-script .cgi .pl
+            Require method GET POST OPTIONS
+        </Directory>
+
+
