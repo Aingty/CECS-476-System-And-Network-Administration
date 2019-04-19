@@ -1,0 +1,78 @@
+Name     : Aingty Eung
+Login    : csa476d2
+Computer : lab66.net.cecs.csulb.edu
+
+                                    Domain Name Service
+1.  Reports of files    :
+        /etc/named.conf :
+            options {
+                    directory "/etc/named";
+                    /*
+                    * If there is a firewall between you and nameservers you want
+                    * to talk to, you might need to uncomment the query-source
+                    * directive below.  Previous versions of BIND always asked
+                    * questions using port 53, but BIND 8.1 uses an unprivileged
+                    * port by default.
+                    */
+                    // query-source address * port 53;
+            };
+            //
+            // a caching only nameserver config
+            //
+            zone "." IN {
+                    type hint;
+                    file "caching-example/named.root";
+            };
+
+            zone "localhost" IN {
+                    type master;
+                    file "caching-example/localhost.zone";
+                    allow-update { none; };
+            };
+
+            zone "0.0.127.in-addr.arpa" IN {
+                    type master;
+                    file "caching-example/named.local";
+                    allow-update { none; };
+            };
+            // Below are Added for Assignment 21 by Aingty Eung 4/18/19
+            zone "net66.cecs.csulb.edu" IN {
+                    type master;
+                    file "named.hosts";
+            };
+            zone "1.168.192.in-addr.arpa" IN {
+                    type master;
+                    file "named.rev192";
+            };
+        /etc/named/named.hosts  :
+            TTL  86400
+            @   IN  SOA  lab66.net.cecs.csulb.edu. root.lab66.net.cecs.csulb.edu.  (
+                            2009020500 ; Serial
+                            28800      ; Refresh
+                            14400      ; Retry
+                            3600000    ; Expire
+                            86400 )    ; Minimum
+            IN      NS      lab66.net.cecs.csulb.edu.
+            test01 IN A 192.168.1.1
+            test02 IN A 192.168.1.2
+        /etc/named/named.rev192 :
+            $TTL  86400
+            @   IN  SOA  lab66.net.cecs.csulb.edu. root.lab66.net.cecs.csulb.edu.  (
+                            2012111300 ; Serial
+                            28800      ; Refresh
+                            14400      ; Retry
+                            3600000    ; Expire
+                            86400 )    ; Minimum
+            IN      NS      lab66.net.cecs.csulb.edu.
+            1 IN PTR test01.net66.cecs.csulb.edu.
+            2 IN PTR test02.net66.cecs.csulb.edu.
+
+2.  Command(s) Used :
+        root@lab66:~# nslookup test01.net66.cecs.csulb.edu lab66
+            Result:
+                Server:		lab66
+                Address:	134.139.248.66#53
+
+                Name:	test01.net66.cecs.csulb.edu
+                Address: 192.168.1.1
+
