@@ -1,0 +1,5 @@
+Name     : Aingty Eung
+Login    : csa476d2
+Computer : lab66.net.cecs.csulb.edu
+
+                                    DHCP and Remote Booting
