@@ -23,6 +23,20 @@ Computer : lab66.net.cecs.csulb.edu
         }
 
 2.  File that starts DHCP   :
-        /etc/rc.d/rc.inet1
+        /etc/rc.d/rc.local
 
-3.  
+3.  Options for Trivial File Transfer Protocol  :
+        -l means used if you are not running from inetd or literal mode
+
+4.  "in.tftpd" process on jaguar  :
+        Running with option -l which means literal mode
+
+5.  "in.tftpd" in "inetd.conf" is running with  :
+        -l which means running from inetd or literal mode
+        
+6.  More secure from inetd.conf
+
+7.  Boot Options for pxelinux.cfg :
+        9 totals but 7 commented out so 2 are used
+
+8.  
