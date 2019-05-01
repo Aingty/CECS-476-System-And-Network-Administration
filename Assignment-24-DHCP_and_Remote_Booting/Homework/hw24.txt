@@ -39,4 +39,14 @@ Computer : lab66.net.cecs.csulb.edu
 7.  Boot Options for pxelinux.cfg :
         9 totals but 7 commented out so 2 are used
 
-8.  
+8.  Info of default.std	:
+    	label huge.s
+      		kernel kernels/huge.s/bzImage
+      		append initrd=initrd.img load_ramdisk=1 prompt_ramdisk=0 rw SLACK_KERNEL=huge.s
+    	label hugesmp.s
+      		kernel kernels/hugesmp.s/bzImage
+      		append initrd=initrd.img load_ramdisk=1 prompt_ramdisk=0 rw SLACK_KERNEL=hugesmp.s
+    	label speakup.s
+      		kernel kernels/speakup.s/bzImage
+      		append initrd=initrd.img load_ramdisk=1 prompt_ramdisk=0 rw SLACK_KERNEL=speakup.s
+    message.txt can be displayed
