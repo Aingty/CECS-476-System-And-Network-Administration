@@ -3,3 +3,26 @@ Login    : csa476d2
 Computer : lab66.net.cecs.csulb.edu
 
                                     DHCP and Remote Booting
+1.  File used to boot from is   :
+        /tftpboot/pxelinux.0
+    Domain Name :
+        "net.cecs.csulb.edu"
+    Lines for Subnet, Netmask, and Router    :
+        group 
+        {
+            next-server 134.139.248.65;
+            subnet 134.139.248.64 netmask 255.255.255.224 {
+            option routers 134.139.248.65;
+        }
+    Lines for Name and IP   :  
+        host lab66 
+        {
+            #hardware ethernet 00:11:11:93:73:7a ;
+            hardware ethernet 00:22:4d:4c:79:68 ;
+            fixed-address 134.139.248.66 ;
+        }
+
+2.  File that starts DHCP   :
+        /etc/rc.d/rc.inet1
+
+3.  
