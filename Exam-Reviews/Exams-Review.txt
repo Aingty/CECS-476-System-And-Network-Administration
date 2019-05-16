@@ -1,0 +1,385 @@
+1)  (HW20, Security) Give the command to make the file /bin/ping SUID as root for all users. It is already owned by root. 
+
+chmod 4711 /bin/ping
+
+2) (HW13, NFS) You wish to mount the /data/disks directory on buildserv.cecs.csulb.edu to your file system tree as /net/disks. Give the command to do this, and then give the file and modification to make this directory mount on startup. 
+
+mount -a
+File: /etc/fstab
+buildserv.cecs.csulb.edu:/data/disks /net/disks nfs soft,bg,nolock 0 0
+
+3) (HW14, FTP) Give the commands to sftp the file “securethisfile.txt” to secureserv.cecs.csulb.edu as the “secureuser” user to his home directory. 
+
+sftp -o User=secureuser secureserv.cecs.csulb.edu
+get securethisfile.txt
+exit 
+
+4) (HW14, FTP) You want to restrict the “localonly” user from using ftp. Give the steps to do this (with files to edit). 
+
+File: /etc/ftpusers
+Line added: localonly
+
+5) (HW18,Syslog) You want to add a custom logging rule that will log all messages to the local3 facility to the file /var/log/ohcraplog. Give the file and modifications needed to do this, and a command needed to reload the logging service. 
+
+File: /etc/syslog.conf
+local3.*  -/var/log/ohcraplog
+
+Command: pkill -HUP syslogd
+
+6) Why would you setup quotas on a disk? (this is a conceptual question) 
+
+Limit the amount of disk a user is allowed 
+
+7) (HW21,httpd) Steve hosts public-html to the web using HTTPD and tilde directories. He wants to restrict access to his site to require a username and password. Give the steps to do this. Include config files, entries, and commands. 
+
+File: ~steve/.htaccess
+AuthName “MyCluster”
+AuthType Basic
+AuthUserFile [path]		# [path] indicates full pathname to password file
+require valid-user
+
+htpasswd -c users [steve]	# [steve] indicates user that has access to Steve’s site
+
+8) When installing linux, describe what needs to be done before install files and packages are written to the disk. 
+
+Set up swap partition, select the partition to install on, and select the source of the image file, which will be through NFS from jaguar, select packages to install, build the lilo config file, setup the network, install services, and set root password.
+
+9) (HW23,Samba) You want to be able to print to a printer attached to a machine called netprint. The printer is called hpnocolor. What file should you modify? What lines do you need in that file? 
+
+File: /etc/samba/smb.conf
+[hpnocolor]
+	comment = net printer
+	path = /var/spool/samba
+	printer = netprint
+	guest ok = yes
+	writable = no
+	printable = yes
+
+10) (HW22, DNS) You want to define a zone “thecloudisoverrated.net” and host DNS for it. Give the file needed to define the DNS zone, and the lines to add to this file to make this work. 
+
+File: /etc/named.conf
+zone “thecloudisoverrated.net” IN {
+	type master;
+	file “named.hosts”;
+};
+
+11) (HW19,Mail) When configuring mail on your system, how do you make sure make sent as root is only delivered locally and not sent to a remote mail server? Give files needed to modify, and lines in these files. 
+
+File: /etc/mail/sendmail.cf
+Line added: C{L} root
+
+13) (HW20, iptables) Give a command (or multiple commands) to block traffic going outbound to ports 445 TCP and 135 UDP. 
+
+iptables -A OUTPUT -p tcp --dport 445 -j REJECT
+iptables -A OUTPUT -p udp --dport 135 -j REJECT
+
+14) (HW14,FTP) Give a command to list the shared libraries used by the binary /usr/bin/python. 
+
+ldd /usr/bin/python
+
+15) (HW13,exports) You want to make a directory called /data/winshare/ on your Linux machine available to all machines running Microsoft Windows as writeshare. The directory should be writable by all. What file do you need to change and what lines do you add? 
+
+File: /etc/exports
+/data/winshare/ * (rw,sync,no_subtree_check)
+
+16) (HW20) How do you determine who has logged into your machine at what time? 
+
+last
+
+17) What does the tftp service do, and what are the dangers of running it outside of its specific purpose? 
+
+Small version of FTP used for remote booting. Dangers include the TFTP server being accessed as there is no user authentication or access control.
+
+18) (HW19,Mail) In order to send mail, you must use a mail relay server called smtp.gmail.com. Give the file you need to edit, the modifications needed, and a command to make these changes take effect. 
+
+File: /usr/share/sendmail/cf/cf/sendmail-slackware.mc
+define(`SMART_HOST’,`smtp.gmail.com’)
+
+/etc/rc.d/rc.sendmail restart
+
+19) (HW13, exports) You want to make your directory /export/disks available to subnet 134.139.60.0/255.255.255.0 read only and the machine buildserver.cecs.csulb.edu read and write. Give the name of the file you need to modify, the lines you need to add to that file, and the command you need to run to activate this. 
+
+File: /etc/exports
+/export/disks 134.139.60.0/255.255.255.0(ro) buildserver.cecs.csulb.edu(rw)
+
+/etc/rc.d/rc.nfsd restart
+
+20) (HW22, DNS) You want to make the DNS A record for csulb.edu point to 134.139.1.1 and PTR record for the reverse. Give the two lines needed. 
+
+csulb.edu IN A 134.139.1.1
+1.1.139.134.in-addr.arpa IN PTR csulb.edu
+
+21) (HW24, dhcpd) You want to configure and start dhcpd so that it gives out a specific address 134.139.248.20 to a machine with mac address 34:75:F8:12:87:F4 when requested. Give the config file to modify, the modifications needed to this file, and the command to start the dhcpd server. 
+
+File: /etc/dhcpd.conf
+host machine {
+	hardware ethernet 34:75:F8:12:87:F4 ;
+	Fixed-address 134.139.248.20 ;
+}
+
+/etc/rc.d/rc.local restart
+
+Where does the X windows system log things to? (2pts) 
+
+Xorg.0.log
+
+List 2 files: the system and user config files for xinit. (4pts) 
+
+System: /etc/X11/xinit/xinitrc
+User: ~/.xinitrc
+
+How do you disable ctrl-alt-backspace from killing x windows when pressed? (2pts)
+
+File: /etc/X11/xorg.conf
+Section “ServerFlags” 
+Option “DontZap” “yes”
+EndSection
+
+How do you set a screen saver timeout? Give the file you need to modify and the line in this file to modify. (3pts) 
+
+File: ~/.Xdefaults
+xscreensaver.timeout: 5	# where 5 represents the number of seconds of timeout.
+
+What is the simplest window manager on your system? (1pts) 
+
+twm
+
+How do you find the vertical sync rate of a display? (1pts) 
+
+Run the command “xvidtune” inside an xterm window
+
+How would you modify sue’s account such that when she starts X, she has a solid black background, starts an xclock in the bottom left, and starts an xterm in the top right size 80x120. Assume twm is used. (3pts)
+
+File: ~/.xinitrc
+xclock -g +0-0
+xterm -g 80x120-0+0
+xsetroot -solid black
+twm
+
+How is the system default window manager set? (3pts)
+
+In the file: /etc/X11/xinit/xinitrc
+
+How would you modify bob’s account such that when he starts X, he has a solid green background, starts an 80x24 terminal in the bottom left, and starts an xclock in the top left. Assume fvwm is used. (3pts) 
+
+File: ~/.xinitrc
+xterm -g 80x24+0-0
+xclock -g +0+0
+xsetroot -solid green
+fvwm
+
+
+
+
+
+
+
+________________________2016 Final starts here__________________________ 
+
+1. Describe how to do diskless installs on your machine (IE, no optical disk or usb drives). 
+
+Use the command “apt -get install [install location]” and then the location of the install in order to do any diskless installs. For example, if the installation files are on another machine, use that file path in the command. 
+
+2. (HW20, SUID) How do you log all su activity and which log file are the logs sent to usually
+
+File: /etc/login.defs
+SYSLOG_SU_ENAB	yes		# yes indicates logging of su activity
+SULOG_FILE /var/log/sulog		# uncommented
+SU_WHEEL_ONLY yes		# changed from no to yes
+
+Log files usually sent to /var/log/sulog
+
+3. Give the file that quota relies on to work. Then give a command to edit the user mike’s soft quota to be 100 MB.
+
+/etc/fstab
+edquota -u mike
+
+4. (HW19, Mail) Describe the pop3 protocol (at a high level). What does it stand for? What is the name of the server that uses it?
+
+Post Office Protocol version 3 server, used to operate local mailboxes on behalf its remote users. Used only to retrieve mail. Name of server is popa3d.
+
+5. (HW17, Install) When installing Linux, which 4 startup services do you need to enable to use: ssh to your machine , mail, system logging, and telnet to your machine.
+
+SSH: rc.sshd
+Mail: rc.sendmail
+System logging: rc.syslog
+telnet: rc.inetd
+
+6. You want to force anyone running the buildscript program to become the user jenkins. Describe how you would do this (with commands).
+
+As the user jenkins, navigate to the directory containing the buildscript program
+Run the following command: chmod 700 buildscript
+This ensures that only jenkins can run the program.
+
+7. Give the two DNS zone entries for the domain test.cecs.csulb.edu that uses the IP subnet 134.139.252.0.
+
+zone “test.cecs.csulb.edu” IN {
+	type master;
+	file “named.hosts”;
+};
+
+zone “0.252.139.134.in-addr.arpa” IN {
+	type master;
+	file “named.rev134”;
+}
+
+
+8. You want to configure and start dhcpd so that it gives out a pool of addresses from 134.139.246.10 to 134.139.246.40. Give the config file to modify, the modifications needed to this file, and the command to start the dhcpd server.
+
+File: /etc/dhcp/dhcpd.conf 
+Modifications (below is a sample of what you see in the config file thx google): 
+subnet 192.168.0.0 netmask 255.255.255.0 {
+        range 192.168.0.200 192.168.0.229; 
+        option subnet-mask 255.255.255.0;
+        option broadcast-address 192.168.0.255;
+        option routers 192.168.0.1;
+}
+Change “range …..blah blah…..” to “range 134.139.246.10 134.139.246.40” 
+
+Start dhcpd server: service dhcpd start or /sbin/service/dhcpd start
+
+
+
+
+
+
+
+
+
+
+
+
+
+_____________________2018 Exam starts here_________________________
+
+1. (HW16) How do you list packages installed on your system? Give commands. 
+pkgtool -> select View option
+ls /var/log/packages		# alternative
+
+2. (Security) Give the command to make the file /sbin/checkgroup SGID as the group “testers” for any user that runs it. It is owned by root, by the user does not matter in this context.
+chmod 2750 /sbin/checkgroup
+useradd root testers <- not sure
+
+3. (FTP) Describe how to set up an ftp banner message. Give files and commands needed (if any).
+File: ~ftp/welcome.msg 
+Write banner message into the file
+
+4. (Syslog) You want to log all kernel debug logs to the file /tmp/log/kernlog. Give the file and modifications needed to do this, and a command needed to reload the logging service.
+File: /etc/syslog.conf
+kern.debug -/tmp/log/kernlog
+
+Reload logging service: pkill -HUP syslogd
+
+(HW25, Quota) Describe how to set a group quota. Include commands, files, and steps.
+Append grpquota for the options of the device in /etc/fstab you wish to set up quota for
+mount -o remount [path]	# Mount and remount [path], where [path] is mount point
+quotacheck -agcm		# create quota files for devices in /etc//fstab
+edquota -g [group]		# where [group] is the group you would like to set quota for
+quotaon -a			# turns on quotas
+
+5. (HTTPD) Describe (with files, commands, and steps) how to create a simple webpage and host it on your machine using a web server. 
+chmod a+x /etc/rc.d/rc.httpd	# turn on webserver service
+/etc/rc.d/rc.httpd restart		# restart webserver
+Create home page (index.html) and place it in the home directory (~user/index.html)
+
+File: /etc/httpd/httpd.conf
+<Directory />
+	Options FollowSymLinks
+	AllowOverride None
+	Order allow, deny
+	allow from all
+</Directory>
+LoadModule userdir_module lib64/httpd/modules/mod_userdir.so
+Include /etc/httpd/extra/httpd-userdir.conf
+
+File: /etc/httpd/extra/httpd-userdir.conf
+UserDir /home/*
+<Directory “/home/*”>
+	AllowOverride None
+	Options Indexes FollowSymLinks
+	Require method GET POST OPTIONS
+	Allow from all
+</Directory>
+
+Navigate to home page for user http://labxx.net.cecs.csulb.edu/~user 
+
+6. (DNS) You want to define a zone “testzone.net” and host DNS for it. Give the file needed to define the DNS zone, and the lines to add to this file to make this work. Then give a sample A record that might go into this zone’s host file. Lastly, give the command to reload the DNS configuration files.
+File: /etc/named.conf
+zone “testzone.net” IN {
+	type master;
+	file “named.hosts”;
+};
+
+FIle: /etc/named.hosts
+testzone.net IN A 134.139.1.1
+
+Reload DNS: /etc/rc.d/rc.bind restart
+
+Analysis section. 
+
+1. Your machine has kernel panicked and crashed. 
+Check log file associated with system
+cat /var/log/syslog
+
+2. Your machine has run out of diskspace on its root volume. 
+Check disk usage  
+df
+
+3. You get a 403 Forbidden when trying to access a website you administer. 
+Check config files associated with httpd
+cat /etc/httpd/httpd.conf
+In the Directory Listing for /, check that “Deny from all” is not one of the lines in it.
+cat /etc/httpd/extra/httpd-userdir.conf
+ 
+4. Your machine runs out of main memory and starts swapping to disk (very slow).
+Check currently running processes
+ps aux
+Kill any unnecessary processes that is causing your machine to run out of main memory
+
+5. All methods to remotely access your machine fail. You can still ping your machine though. 
+Check permissions for ssh 
+cat /etc/ssh/sshd_config
+Check to make sure that there is no “DenyUsers” in the config file
+
+6. (Samba) You can mount a share on jaguar by its IP address but not its name. 
+Check if DNS Proxy is enabled in Samba 
+cat /etc/samba/smb.conf | grep dns  
+
+7. Students get a 404 error when attempting to access their tilde directories via a web browser. 
+
+404 error = browser communicated to server, but server could not find what was requested
+Check user httpd configuration file
+cat /etc/httpd/extra/httpd-userdir.conf
+What to look for: 
+<Directory “/home/~”> check for that entry and see if it exists 
+
+8. (DNS) Your named does not start.
+Check file permissions of DNS service /etc/rc.d/rc.bind 
+ls -l /etc/rc.d/rc.bind
+
+9. You ssh to a machine with public key authentication and get permission denied. 
+Check if PubkeyAuthentication variable is set to yes in the file /etc/ssh/sshd_config
+# prints out line that indicates if public key authentication is allowed
+cat /etc/ssh/sshd_config | grep PubkeyAuthentication	
+/etc.rc.d/rc.sshd restart	# only needed if config was modified
+
+10. You are no longer seeing events in your log files even though you know there should be events. 
+Check if /etc/rc.d/rc.syslog is running
+/etc/rc.d/rc.syslog start		# will show message if service is running already
+
+11. You get a 500 Server Error when trying to access a website you administer. 
+
+500 error = something is wrong with the server, but the exact reason is unknown
+Check server logs to see the reason 
+tail -f  /var/log/httpd/error_log 
+Or 
+Check website permissions 
+cat /etc/httpd/httpd.conf
+Ensure that the main home page “<Directory “/”> exists and that “Allow from all” is also there. The “/” can be the name of your main website.
+
+12. You can ping your machine and other machines near you, but nothing else.
+Check gateway and subnet for your machine. 
+cat /etc/dhcpd.conf
+Or 
+Change default gateway so that machine can reach other machines
+route add default gw ___.____.____.____ 
